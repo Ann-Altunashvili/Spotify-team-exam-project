@@ -1,10 +1,10 @@
-
-@use "layout/sidebar";
-@use "layout/header";
-@use "abstracts/variables";
-@use "abstracts/mixins";
-
-
-body {
-    background-color: red
-}
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/responsive';
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/player';
+@import 'layout/sidebar';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/chips';
