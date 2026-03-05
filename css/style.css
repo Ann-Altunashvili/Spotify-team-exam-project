@@ -15,12 +15,13 @@
   padding: 10px 20px;
   font-family: "Satoshi";
   font-weight: 400;
+  font-size: 14px;
 }
 
 .nav-list {
   display: flex;
   gap: 20px;
-  color: #e0e0e0;
+  color: #898989;
 }
 
 .nav-item a {
@@ -29,7 +30,7 @@
   gap: 15px;
 }
 .nav-item a:hover {
-  color: #282828;
+  color: #e0e0e0;
   transition: 0.3s ease;
 }
 .nav-item a img {
@@ -48,6 +49,38 @@
 /* ============================
    SPOTIFY PROJECT VARIABLES
    ============================ */
+.sidebar {
+  background-color: #060606;
+  width: 259px;
+  height: 100vh;
+  color: #898989;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 2px;
+  font-family: "satoshi";
+  display: flex;
+  gap: 11px;
+}
+
+.library-list {
+  margin-left: 18px;
+}
+.library-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 8px 10px;
+  font-weight: 400;
+  font-size: 14px;
+}
+.library-list:hover {
+  color: #e0e0e0;
+  transition: 0.3s ease;
+}
+.library-list img {
+  filter: brightness(1.5);
+}
+
 /* ============================
    SPOTIFY PROJECT VARIABLES
    ============================ */
@@ -80,6 +113,11 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+.main-layout {
+  height: 100vh;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */
