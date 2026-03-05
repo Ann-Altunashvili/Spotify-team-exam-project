@@ -1,3 +1,85 @@
+/* ============================
+   SPOTIFY PROJECT VARIABLES
+   ============================ */
+/* ============================
+   SPOTIFY PROJECT VARIABLES
+   ============================ */
+/* ============================
+   SPOTIFY PROJECT VARIABLES
+   ============================ */
+.header {
+  background-color: #060606;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: "Satoshi";
+  font-weight: 400;
+}
 
+.nav-list {
+  display: flex;
+  gap: 20px;
+  color: #e0e0e0;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.nav-item a:hover {
+  color: #282828;
+  transition: 0.3s ease;
+}
+.nav-item a img {
+  filter: brightness(1.5);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+/* ============================
+   SPOTIFY PROJECT VARIABLES
+   ============================ */
+/* ============================
+   SPOTIFY PROJECT VARIABLES
+   ============================ */
+/* ============================
+   SPOTIFY PROJECT VARIABLES
+   ============================ */
+/* ============================
+   SPOTIFY PROJECT VARIABLES
+   ============================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -1,2 +1,41 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
+
+.header {
+    background-color: $color-bg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: 'Satoshi';
+    font-weight: 400;
+     
+    }
+
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    color: $color-text-primary;
+   
+}
+.nav-item a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+   
+    &:hover {
+        color: $color-bg-card-hover;
+        transition: 0.3s ease;
+    }
+    img {
+        filter: brightness(1.5);
+    }
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+}
