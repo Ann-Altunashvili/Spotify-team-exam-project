@@ -9,11 +9,45 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 2px;
     font-family: 'satoshi';
-    display: flex;
     gap: 11px;
+    position: fixed;
+    z-index: 1100;
+    top: 0;
+    left: 0;
+    width: 259px;
+    height: 100vh;
+    flex-direction: column;
 }
+.library-header{
+    padding:0 18px 20px 18px;
+    display:flex !important;
+    cursor: pointer;
+   
+    .library-title-link {
+        display: flex !important;   
+        flex-direction: row;        
+        align-items: center;      
+        gap: 11px;                
+        text-decoration: none;
+        margin-top:9px ;
+        font-family: 'satoshi';
+        font-weight: 400;
+        font: size 14px;
+    }
+     &:hover {
+        color: $color-text-primary;
+        transition: 0.3s ease;
+    }
+    img {
+        filter: brightness(1.5);
+    }
+
+}
+
+
+
 .library-list {
-    margin-left: 18px;
+    margin: left 15px;
 
     li {
         display: flex;
@@ -24,6 +58,7 @@
        // justify-content: space-between; //
         font-weight: 400;
         font-size: 14px;
+        letter-spacing: 3%;
 
     }
      &:hover {
