@@ -1,3 +1,134 @@
-@use '../abstracts/variables' as *;
-@use '../abstracts/mixins' as *;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../base/base" as *;
+@use "../components/buttons" as *;
 
+.footer-player {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 95%;
+    max-width: 1491px;
+    background-color: $color-bg-player;
+    border-radius: 10px;
+    border: 1px solid $color-border-main;
+    padding: 0 19px 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    height: 81px;
+
+    // მარცხენა სექცია (კონტროლები და დრო)
+    .player-left {
+        .left-side-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-play {
+            width: 38px;
+            height: 38px;
+            background-color: $color-spotify;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .player-time {
+            font-family: $font-main;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: $text-gray;
+            white-space: nowrap;
+        }
+
+        .player__progresss-line {
+            max-width: 317px;
+        }
+    }
+
+    // შუა სექცია (სიმღერის ინფო)
+    .player-center {
+        flex-grow: 1;
+
+        .mini-track {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+
+            &__img {
+                width: 51px;
+                height: 51px;
+                border-radius: 3px;
+            }
+
+            &__text {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                min-width: 0;
+
+                .mini-track__title {
+                    font-family: $font-main;
+                    font-size: 0.875rem;
+                    font-weight: 400;
+                    color: $color-text-primary;
+                    margin: 0;
+                }
+
+                .mini-track__artist,
+                .mini-track__album {
+                    font-family: $font-main;
+                    font-size: 0.875rem;
+                    font-weight: 400;
+                    color: $text-gray;
+                    margin: 0;
+                }
+                .mini-track__title,
+                .mini-track__artist,
+                .mini-track__album {
+                    white-space: nowrap; // ტექსტი არ გადავიდეს ახალ ხაზზე
+                    overflow: hidden; // რაც არ ეტევა, დაიმალოს
+                    text-overflow: ellipsis; // დაემარტოს სამწერტილი (...)
+                    max-width: 100%; // არ გასცდეს მშობლის სიგანეს
+                }
+            }
+        }
+    }
+
+    // მარჯვენა სექცია
+    .player-right {
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-end;
+        width: 350px;
+        height: 48px;
+
+        .footer-right-icons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .btn-icon {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                background: none;
+                border: none;
+
+                &__svg {
+                    width: 25px;
+                    height: 25px;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}
