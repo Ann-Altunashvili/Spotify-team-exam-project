@@ -120,22 +120,7 @@
         </section>
 
     </footer>
-    <script>
-        var audio = document.getElementById("music-file");
-        var sBtn = document.getElementById("start-btn");
-        var pBtn = document.getElementById("playing-btn");
-        sBtn.onclick = function () {
-            audio.play();
-            sBtn.style.display = "none";
-            pBtn.style.display = "flex";
-        };
-
-        pBtn.onclick = function () {
-            audio.pause();
-            pBtn.style.display = "none";
-            sBtn.style.display = "flex";
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
