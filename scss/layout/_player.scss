@@ -12,7 +12,7 @@
     background-color: $color-bg-player;
     border-radius: 10px;
     border: 1px solid $color-border-main;
-    padding: 0 19px 0 36px;
+    padding: 0 20px 0 20px;
     @include flex-layout(space-between, center, 5px);
     height: 81px;
     margin-bottom: 5px;
@@ -48,6 +48,8 @@
             color: $text-gray;
             white-space: nowrap;
             flex-shrink: 0;
+            @media (min-width: 768px) and (max-width: 1180px) {
+            display: none;}
         }
 
         .player__progress-line {
@@ -56,6 +58,9 @@
             min-width: 50px;
             object-fit: contain;
             cursor: pointer;
+
+            @media (min-width: 768px) and (max-width: 1180px) {
+            display: none;}
         }
     }
 
@@ -63,7 +68,7 @@
     .player-center {
         flex: 1 1 0; // Takes up remaining space
         min-width: 0; // Necessary for text truncation
-        padding: 0 20px;
+        
 
         .mini-track {
             @include flex-layout(flex-start, center, 12px);
@@ -80,6 +85,10 @@
                 display: flex;
                 flex-direction: column;
                 min-width: 0;
+
+                .mobile-text {
+                    @include hide-elements; 
+                }
 
                 .mini-track__title,
                 .mini-track__artist,
@@ -133,6 +142,110 @@
                     width: 25px;
                     height: 25px;
                     object-fit: contain;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: 0 auto 10px auto;
+        width: calc(100% - 20px); // მობილურზე რომ დაიკავოს მეტი სივრცე
+        height: 61px; 
+        box-sizing: border-box;
+
+        .player-left {
+            order: 3;
+            gap: 15px;
+            flex: 0 0 auto;
+
+            
+            .btn-icon,
+            .player-time,
+            .player__progress-line,
+            .voice-btn {
+                @include hide-elements;
+            }
+            .btn-play {
+                img {
+                    @include hide-elements;
+                }
+                background-image: url("/assets/icons/player-icons/player-start-icon-mobile.svg");
+                background-color: transparent; 
+                width: auto;
+                height: auto;
+                padding: 0;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                width: 20px;
+                height: 20px;
+                color: $text-gray;
+            }
+        }
+
+        .player-center {
+            order: 1;
+            min-width: 0;
+            flex: 1; 
+
+            .mini-track {
+                display: flex;
+                align-items: center;
+
+                &__text {
+                    display: flex;
+                    flex-direction: column;
+                    min-width: 0; 
+
+                   
+                    .desktop-text {
+                        @include hide-elements;
+                    }
+
+                    // unhide mobile text and give styles
+                    .mobile-text {
+                        display: block; 
+                        font-family: $font-main;
+                        color: $color-text-primary;
+                        font-size: 0.875rem;
+                        @include text-fade-right(80%);
+                    }
+                }
+
+                &__img {
+                    width: 43px;
+                    height: 43px;
+                    border-radius: 3px;
+                    flex-shrink: 0;
+                }
+
+                &__album {
+                    @include hide-elements;
+                }
+            }
+        }
+
+        .player-right {
+            order: 2;
+            flex: 0 0 auto;
+            min-width: unset;
+            width:auto;
+
+            .footer-right-icons {
+                .btn-icon {
+                    @include hide-elements; //firstly hide all element
+
+                    &:nth-child(2) {
+                        display: flex; //unhide only "add" element
+                    }
+                }
+
+                span,
+                .btn-icon:last-child {
+                    @include hide-elements;
                 }
             }
         }
