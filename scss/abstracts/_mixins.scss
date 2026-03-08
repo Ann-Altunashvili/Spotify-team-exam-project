@@ -20,3 +20,33 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+/* =====================
+   Text Fade Right Mixin
+   ===================== */
+// This mixin creates a smooth fade-out effect on the right side of the text using a linear gradient mask, ideal for long strings that shouldn't wrap.
+
+@mixin text-fade-right($start-percent: 80%) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        black $start-percent,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        black $start-percent,
+        transparent 100%
+    );
+}
+
+/* =====================
+   Hide Elements Mixin
+   ===================== */
+// This mixin is used to completely remove an element from the document layout by setting its display property to none.
+
+@mixin hide-elements {
+    display: none;
+}
