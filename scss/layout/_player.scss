@@ -40,6 +40,9 @@
             @include flex-layout(center, center);
             flex-shrink: 0;
         }
+        .when-click{
+            display:none;
+        }
 
         .player-time {
             font-family: $font-main;

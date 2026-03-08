@@ -79,6 +79,9 @@ button {
   gap: 0;
   flex-shrink: 0;
 }
+.footer-player .player-left .when-click {
+  display: none;
+}
 .footer-player .player-left .player-time {
   font-family: "satoshi", sans-serif;
   font-size: 0.75rem;

@@ -35,8 +35,11 @@
         <!--Player left section-->
         <section class="player-left">
             <div class="left-side-icons">
-                <button class="btn-play" aria-label="Play">
-                    <img src="./assets/icons/player-icons/player-playing-icon.svg" alt="Play">
+                <button class="btn-play" aria-label="Start" id="start-btn">
+                    <img src="./assets/icons/player-icons/player-start-icon.svg" alt="Start button">
+                </button>
+                <button class="btn-play when-click" aria-label="Play" id="playing-btn">
+                    <img src="./assets/icons/player-icons/player-playing-icon.svg" alt="Plaing button">
                 </button>
                 <button class="btn-icon" aria-label="Previous">
                     <img src="./assets/icons/player-icons/player-left-arrow.svg" alt="Previous" class="btn-icon__svg">
@@ -59,6 +62,7 @@
                     <img src="./assets/icons/player-icons/player-voice-icon.svg" alt="Voice control"
                         class="btn-icon__svg">
                 </button>
+                <audio src="./assets/icons/player-icons/player-mp3/DaftPunk-GetLucky.mp3" id="music-file"></audio>
             </div>
         </section>
 
@@ -70,7 +74,8 @@
                         class="mini-track__img">
                     <div class="mini-track__text">
                         <h4 class="mini-track__title desktop-text">Get Lucky</h4> <!--in mobile it will be hidden-->
-                        <h4 class="mini-track__title mobile-text">Get Lucky (feat. Pharrell Williams and Nile Rodgers) <!--in desktop it will be hidden-->
+                        <h4 class="mini-track__title mobile-text">Get Lucky (feat. Pharrell Williams and Nile Rodgers)
+                            <!--in desktop it will be hidden-->
                         </h4>
                         <p class="mini-track__artist">Daft Punk</p>
                         <p class="mini-track__album">Random Access Memories</p>
@@ -115,6 +120,22 @@
         </section>
 
     </footer>
+    <script>
+        var audio = document.getElementById("music-file");
+        var sBtn = document.getElementById("start-btn");
+        var pBtn = document.getElementById("playing-btn");
+        sBtn.onclick = function () {
+            audio.play();
+            sBtn.style.display = "none";
+            pBtn.style.display = "flex";
+        };
+
+        pBtn.onclick = function () {
+            audio.pause();
+            pBtn.style.display = "none";
+            sBtn.style.display = "flex";
+        };
+    </script>
 </body>
 
 </html>
