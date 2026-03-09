@@ -1,3 +1,4 @@
+@use "../abstracts/variables" as *;
 /* =====================
    Flexbox Layout Mixin
    ===================== */
@@ -49,4 +50,44 @@
 
 @mixin hide-elements {
     display: none;
+}
+
+@mixin font-style {
+  font-family: $font-main;
+  font-size: $font-size-primary;
+}
+
+@mixin hover-selected-style {
+  color: $menu-text-hover;
+  background-color: $hover-background-color;
+}
+
+@mixin button-hover-effect {
+  img {
+    filter: brightness(1.7);
+  }
+}
+@mixin button-hover-transition {
+  transition: filter 0.2s linear;
+}
+
+// glass effect
+@mixin glass-effect($bg-opacity: 0.8, $blur: 15px) {
+    background-color: rgba($color-bg, $bg-opacity);
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+}
+
+
+
+// Spotify main header (Music, EDM და ა.შ.) style mixins
+@mixin capsule-button($bg: #20202080, $color: $color-text-primary) {
+    padding: 8px 16px;
+    background-color: $bg;
+    color: $color;
+    border-radius: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    @include font-style;
 }
