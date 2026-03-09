@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+body {
+  background-color: $color-bg;
+}
+
 ul {
   list-style: none;
 }
@@ -26,6 +30,5 @@ button {
   cursor: pointer;
 }
 .main-layout {
-  height: 100vh;
   overflow: hidden;
 }

@@ -29,10 +29,6 @@
   padding: 3px 95px 3px 11px;
 }
 
-.active {
-  background-color: $color-active-chip-text;
-  border-radius: 10px;
-}
 .nav-item a {
   display: flex;
   align-items: center;
@@ -40,13 +36,13 @@
   gap: 10px;
   letter-spacing: 3%;
 
-    &:hover {
-      color: $color-text-primary;
-      transition: 0.3s ease;
-    }
-    img {
-      filter: brightness(1.5);
-    }
+  &:hover {
+    color: $color-text-primary;
+    transition: 0.3s ease;
+  }
+  img {
+    filter: brightness(1.5);
+  }
 }
 
 .header-actions {
