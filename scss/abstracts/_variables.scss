@@ -11,6 +11,11 @@ $color-bg-active: #e0e0e0; // აქტიური ღილაკების 
 $color-active-chip-text: #111111; // "All" აქტიური chip-ის შავი ტექსტი
 $color-bg-inactive-chip: #20202080; // არააქტიური ფილტრების ბექგრაუნდის ფერი(Music, Podcasts...)
 $color-bg-player:  #333842; // Player-ის ბექგრაუნდის ფერი
+$color-text-secondary: #898989;
+
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1200px;
 $text-gray: #898989;
 $font-main: 'satoshi', sans-serif;
 $breakpoint-mobile: 768px;
