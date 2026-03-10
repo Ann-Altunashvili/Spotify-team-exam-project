@@ -152,13 +152,17 @@
     }
 
     @media (max-width: 768px) {
+        display: flex !important;
+        visibility: visible;
+        opacity: 1;
         position: fixed;
+        top: auto;
         left: 0;
         right: 0;
-        margin: 0 auto 10px auto;
-        width: calc(100% - 20px); // მობილურზე რომ დაიკავოს მეტი სივრცე
-        height: 61px;
-        box-sizing: border-box;
+        bottom: 92px;
+        background: $color-bg-player;
+        width: auto;
+        z-index: 99999;
 
         .player-left {
             order: 3;
@@ -177,8 +181,8 @@
                 }
                 background-image: url("/assets/icons/player-icons/player-start-icon-mobile.svg");
                 background-color: transparent;
-                width: auto;
-                height: auto;
+                width: 20px;
+                height: 20px;
                 padding: 0;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -238,10 +242,10 @@
 
             .footer-right-icons {
                 .btn-icon {
-                    @include hide-elements; //firstly hide all element
+                    @include hide-elements;
 
                     &:nth-child(2) {
-                        display: flex; //unhide only "add" element
+                        display: flex;
                     }
                 }
 
@@ -252,7 +256,4 @@
             }
         }
     }
-}
-.mobile-nav {
-    display: none;
 }

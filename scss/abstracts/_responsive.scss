@@ -15,7 +15,7 @@
     border-radius: 0;
   }
 }
-@media (max-width: 772px) {
+@media (max-width: 768px) {
   .header {
     display: none !important;
   }
@@ -30,6 +30,9 @@
     bottom: 0;
     left: 0;
     width: 100%;
+    z-index: 1500;
+    position: fixed;
+    bottom: 0;
     height: 95px;
     display: flex;
     align-items: center;
