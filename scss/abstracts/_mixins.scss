@@ -1,0 +1,93 @@
+@use "../abstracts/variables" as *;
+/* =====================
+   Flexbox Layout Mixin
+   ===================== */
+// This mixin is used to create a flex layout with customizable justify-content, align-items, and gap properties.
+
+@mixin flex-layout($justify: center, $align: center, $gap: 0) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+/* =====================
+   Text Truncate Mixin
+   ===================== */
+// This mixin prevents text from wrapping to a new line and adds an ellipsis (...) if the content exceeds its container width.
+
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* =====================
+   Text Fade Right Mixin
+   ===================== */
+// This mixin creates a smooth fade-out effect on the right side of the text using a linear gradient mask, ideal for long strings that shouldn't wrap.
+
+@mixin text-fade-right($start-percent: 80%) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        black $start-percent,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        black $start-percent,
+        transparent 100%
+    );
+}
+
+/* =====================
+   Hide Elements Mixin
+   ===================== */
+// This mixin is used to completely remove an element from the document layout by setting its display property to none.
+
+@mixin hide-elements {
+    display: none;
+}
+
+@mixin font-style {
+  font-family: $font-main;
+  font-size: $font-size-primary;
+}
+
+@mixin hover-selected-style {
+  color: $menu-text-hover;
+  background-color: $hover-background-color;
+}
+
+@mixin button-hover-effect {
+  img {
+    filter: brightness(1.7);
+  }
+}
+@mixin button-hover-transition {
+  transition: filter 0.2s linear;
+}
+
+// glass effect
+@mixin glass-effect($bg-opacity: 0.8, $blur: 15px) {
+    background-color: rgba($color-bg, $bg-opacity);
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+}
+
+
+
+// Spotify main header (Music, EDM და ა.შ.) style mixins
+@mixin capsule-button($bg: #20202080, $color: $color-text-primary) {
+    padding: 8px 16px;
+    background-color: $bg;
+    color: $color;
+    border-radius: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    @include font-style;
+}
