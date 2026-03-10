@@ -40,8 +40,8 @@
             @include flex-layout(center, center);
             flex-shrink: 0;
         }
-        .when-click{
-            display:none;
+        .when-click {
+            display: none;
         }
 
         .player-time {
@@ -52,7 +52,8 @@
             white-space: nowrap;
             flex-shrink: 0;
             @media (min-width: 768px) and (max-width: 1180px) {
-            display: none;}
+                display: none;
+            }
         }
 
         .player__progress-line {
@@ -63,7 +64,8 @@
             cursor: pointer;
 
             @media (min-width: 768px) and (max-width: 1180px) {
-            display: none;}
+                display: none;
+            }
         }
     }
 
@@ -71,7 +73,6 @@
     .player-center {
         flex: 1 1 0; // Takes up remaining space
         min-width: 0; // Necessary for text truncation
-        
 
         .mini-track {
             @include flex-layout(flex-start, center, 12px);
@@ -90,7 +91,7 @@
                 min-width: 0;
 
                 .mobile-text {
-                    @include hide-elements; 
+                    @include hide-elements;
                 }
 
                 .mini-track__title,
@@ -156,7 +157,7 @@
         right: 0;
         margin: 0 auto 10px auto;
         width: calc(100% - 20px); // მობილურზე რომ დაიკავოს მეტი სივრცე
-        height: 61px; 
+        height: 61px;
         box-sizing: border-box;
 
         .player-left {
@@ -164,7 +165,6 @@
             gap: 15px;
             flex: 0 0 auto;
 
-            
             .btn-icon,
             .player-time,
             .player__progress-line,
@@ -176,7 +176,7 @@
                     @include hide-elements;
                 }
                 background-image: url("/assets/icons/player-icons/player-start-icon-mobile.svg");
-                background-color: transparent; 
+                background-color: transparent;
                 width: auto;
                 height: auto;
                 padding: 0;
@@ -192,7 +192,7 @@
         .player-center {
             order: 1;
             min-width: 0;
-            flex: 1; 
+            flex: 1;
 
             .mini-track {
                 display: flex;
@@ -201,16 +201,15 @@
                 &__text {
                     display: flex;
                     flex-direction: column;
-                    min-width: 0; 
+                    min-width: 0;
 
-                   
                     .desktop-text {
                         @include hide-elements;
                     }
 
                     // unhide mobile text and give styles
                     .mobile-text {
-                        display: block; 
+                        display: block;
                         font-family: $font-main;
                         color: $color-text-primary;
                         font-size: 0.875rem;
@@ -235,7 +234,7 @@
             order: 2;
             flex: 0 0 auto;
             min-width: unset;
-            width:auto;
+            width: auto;
 
             .footer-right-icons {
                 .btn-icon {
@@ -253,4 +252,7 @@
             }
         }
     }
+}
+.mobile-nav {
+    display: none;
 }

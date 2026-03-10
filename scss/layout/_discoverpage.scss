@@ -287,3 +287,65 @@ main {
         }
     }
 }
+
+
+@media (max-width: 768px) {
+    // 1. დავმალოთ დესკტოპის ფლეიერი
+    .footer-player {
+        display: none;
+    }
+
+    // 2. გამოვაჩინოთ მობილურის ნავიგაცია
+    .mobile-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background-color: rgba(18, 18, 18, 0.95); // მუქი ფონი გამჭვირვალობით
+        backdrop-filter: blur(10px); // მინის ეფექტი
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 100;
+        padding-bottom: 10px; // iPhone-ის ქვედა ზოლისთვის ადგილი
+    }
+
+    .mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #b3b3b3; // ნაცრისფერი ტექსტი
+        cursor: pointer;
+        gap: 5px;
+
+        img {
+            width: 24px;
+            height: 24px;
+            opacity: 0.7;
+        }
+
+        span {
+            font-size: 11px;
+            font-family: $font-main;
+        }
+
+        &.active {
+            color: $color-text-primary; // თეთრი ან აქტიური ფერი
+            img {
+                opacity: 1;
+            }
+        }
+    }
+
+    // ასევე შევასწოროთ Grid სტრუქტურა მობილურისთვის
+    body {
+        grid-template-columns: 1fr; // Sidebar გაქრეს ძირითადი ხედიდან
+        grid-template-rows: 65px 1fr 70px;
+    }
+
+    .sidebar {
+        display: none; // მობილურზე გვერდითა პანელი არ გვინდა
+    }
+}
