@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+body {
+  background-color: $color-bg;
+}
+
 ul {
   list-style: none;
 }
@@ -24,4 +28,7 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+}
+.main-layout {
+  overflow: hidden;
 }
