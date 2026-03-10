@@ -145,6 +145,10 @@
   filter: brightness(1.5);
 }
 
+.library-list-active {
+  background-color: #0d0d1a;
+}
+
 /* ============================
    SPOTIFY PROJECT VARIABLES
    ============================ */
