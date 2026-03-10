@@ -1,2 +1,570 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.main-content {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  flex: 1 1 auto;
+  background: #060606;
+  border: 1px solid #202020;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}
+
+.filters-section {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  min-height: 59px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(6, 6, 6, 0.88);
+  backdrop-filter: blur(40px);
+}
+
+.filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 35px;
+}
+
+.filter {
+  height: 35px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(19, 19, 19, 0.9) 0%,
+    rgba(10, 10, 10, 0.9) 100%
+  );
+  color: #e0e0e0;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+
+  &--active {
+    background: #f1f1f1;
+    color: #111;
+    font-weight: 600;
+  }
+}
+
+.filters-layout-action {
+  display: flex;
+  align-items: center;
+}
+
+.icon-action {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+.content-wrapper {
+  padding: 12px 14px 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.catalogue {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  &-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  &-title {
+    color: #fff;
+    font-size: 31px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  &-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      opacity: 0.75;
+      display: block;
+    }
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 10px;
+    align-items: start;
+  }
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.music-card,
+.mix-card,
+.artist-card {
+  width: 100%;
+  min-width: 0;
+}
+
+.music-card,
+.mix-card {
+  &__link {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-top: 16px;
+    border-radius: 7.25px;
+    overflow: visible;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    &::before {
+      top: -8px;
+      width: 90%;
+      height: 6px;
+      border-top-left-radius: 7.25px;
+      border-top-right-radius: 7.25px;
+      z-index: 0;
+    }
+
+    &::after {
+      top: -16px;
+      width: 78%;
+      height: 3px;
+      border-top-left-radius: 7.25px;
+      border-top-right-radius: 7.25px;
+      z-index: 1;
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 7.25px;
+    display: block;
+  }
+
+  &__meta {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  &__type,
+  &__count {
+    font-size: 14px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  &__type {
+    color: #e0e0e0;
+  }
+
+  &__count {
+    flex-shrink: 0;
+  }
+
+  &__desc {
+    margin-top: 8px;
+    color: #898989;
+    font-size: 12px;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+.artist-card {
+  &__link {
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+/* Music card colors */
+.music-card {
+  &:nth-child(1) {
+    .music-card__image-wrap {
+      &::before {
+        background: rgba(206, 110, 154, 0.3);
+      }
+
+      &::after {
+        background: rgba(206, 110, 154, 0.15);
+      }
+    }
+
+    .music-card__count {
+      color: #ce6e9a;
+    }
+  }
+
+  &:nth-child(2) {
+    .music-card__image-wrap {
+      &::before {
+        background: rgba(149, 230, 211, 0.3);
+      }
+
+      &::after {
+        background: rgba(149, 230, 211, 0.15);
+      }
+    }
+
+    .music-card__count {
+      color: #95e6d3;
+    }
+  }
+
+  &:nth-child(3) {
+    .music-card__image-wrap {
+      &::before {
+        background: rgba(244, 184, 189, 0.3);
+      }
+
+      &::after {
+        background: rgba(244, 184, 189, 0.15);
+      }
+    }
+
+    .music-card__count {
+      color: #f4b8bd;
+    }
+  }
+
+  &:nth-child(4) {
+    .music-card__image-wrap {
+      &::before {
+        background: rgba(195, 231, 183, 0.3);
+      }
+
+      &::after {
+        background: rgba(195, 231, 183, 0.15);
+      }
+    }
+
+    .music-card__count {
+      color: #c3e7b7;
+    }
+  }
+
+  &:nth-child(5) {
+    .music-card__image-wrap {
+      &::before {
+        background: rgba(243, 127, 166, 0.3);
+      }
+
+      &::after {
+        background: rgba(243, 127, 166, 0.15);
+      }
+    }
+
+    .music-card__count {
+      color: #f37fa6;
+    }
+  }
+
+  &:nth-child(6) {
+    .music-card__image-wrap {
+      &::before {
+        background: rgba(160, 190, 200, 0.3);
+      }
+
+      &::after {
+        background: rgba(160, 190, 200, 0.15);
+      }
+    }
+
+    .music-card__count {
+      color: #a0bec8;
+    }
+  }
+
+  &:nth-child(7) {
+    .music-card__image-wrap {
+      &::before {
+        background: rgba(253, 216, 125, 0.3);
+      }
+
+      &::after {
+        background: rgba(253, 216, 125, 0.15);
+      }
+    }
+
+    .music-card__count {
+      color: #fdd87d;
+    }
+  }
+
+  &:nth-child(8) {
+    .music-card__image-wrap {
+      &::before {
+        background: rgba(212, 178, 169, 0.3);
+      }
+
+      &::after {
+        background: rgba(212, 178, 169, 0.15);
+      }
+    }
+
+    .music-card__count {
+      color: #d4b2a9;
+    }
+  }
+}
+
+/* Mix card colors */
+.mix-card {
+  &:nth-child(1) {
+    .mix-card__image-wrap {
+      &::before {
+        background: rgba(199, 255, 0, 0.3);
+      }
+
+      &::after {
+        background: rgba(199, 255, 0, 0.15);
+      }
+    }
+
+    .mix-card__count {
+      color: #c7ff00;
+    }
+  }
+
+  &:nth-child(2) {
+    .mix-card__image-wrap {
+      &::before {
+        background: rgba(255, 228, 0, 0.3);
+      }
+
+      &::after {
+        background: rgba(255, 228, 0, 0.15);
+      }
+    }
+
+    .mix-card__count {
+      color: #ffe400;
+    }
+  }
+
+  &:nth-child(3) {
+    .mix-card__image-wrap {
+      &::before {
+        background: rgba(110, 231, 255, 0.3);
+      }
+
+      &::after {
+        background: rgba(110, 231, 255, 0.15);
+      }
+    }
+
+    .mix-card__count {
+      color: #6ee7ff;
+    }
+  }
+
+  &:nth-child(4) {
+    .mix-card__image-wrap {
+      &::before {
+        background: rgba(59, 91, 255, 0.3);
+      }
+
+      &::after {
+        background: rgba(59, 91, 255, 0.15);
+      }
+    }
+
+    .mix-card__count {
+      color: #3b5bff;
+    }
+  }
+
+  &:nth-child(5) {
+    .mix-card__image-wrap {
+      &::before {
+        background: rgba(255, 214, 231, 0.3);
+      }
+
+      &::after {
+        background: rgba(255, 214, 231, 0.15);
+      }
+    }
+
+    .mix-card__count {
+      color: #ffd6e7;
+    }
+  }
+
+  &:nth-child(6) {
+    .mix-card__image-wrap {
+      &::before {
+        background: rgba(255, 184, 74, 0.3);
+      }
+
+      &::after {
+        background: rgba(255, 184, 74, 0.15);
+      }
+    }
+
+    .mix-card__count {
+      color: #ffb84a;
+    }
+  }
+
+  &:nth-child(7) {
+    .mix-card__image-wrap {
+      &::before {
+        background: rgba(0, 255, 198, 0.3);
+      }
+
+      &::after {
+        background: rgba(0, 255, 198, 0.15);
+      }
+    }
+
+    .mix-card__count {
+      color: #00ffc6;
+    }
+  }
+
+  &:nth-child(8) {
+    .mix-card__image-wrap {
+      &::before {
+        background: rgba(255, 42, 158, 0.3);
+      }
+
+      &::after {
+        background: rgba(255, 42, 158, 0.15);
+      }
+    }
+
+    .mix-card__count {
+      color: #ff2a9e;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .catalogue-grid,
+  .artists-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .catalogue-grid,
+  .artists-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-section {
+    padding: 12px 16px;
+  }
+
+  .catalogue-grid,
+  .artists-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
