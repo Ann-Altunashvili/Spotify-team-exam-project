@@ -142,6 +142,11 @@ body {
   align-items: center;
 }
 
+.icon-action__icon {
+  width: 41px !important;
+  height: 41px !important;
+}
+
 .icon-action {
   width: 32px;
   height: 32px;
