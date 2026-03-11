@@ -35,7 +35,11 @@
     }
   }
 }
+.library-list li:first-child {
+  color: #fff;
+  font-weight: bold;
+}
 .library-list-active {
-  
-  background-color: #0d0d1a;
+  background-color: #111111;
+  border-radius: 10px;
 }

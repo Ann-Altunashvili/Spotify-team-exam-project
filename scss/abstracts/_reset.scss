@@ -1,3 +1,5 @@
+@use "../abstracts/_variables" as v;
+
 *,
 *::before,
 *::after {
@@ -7,7 +9,7 @@
 }
 
 body {
-  background-color: $color-bg;
+  background-color: v.$color-bg;
 }
 
 ul {
