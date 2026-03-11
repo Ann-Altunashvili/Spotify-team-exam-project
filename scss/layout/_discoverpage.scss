@@ -3,7 +3,7 @@
 @use "../base/base" as *;
 @use "../components/buttons" as *;
 
-body {
+.page-discover {
     display: grid;
     grid-template-columns: 15vw 1fr; // Sidebar fixed width
     grid-template-rows: 65px 1fr 81px; // Header, Main, and footer heights
@@ -96,6 +96,7 @@ header {
             width: calc(15vw - 10px);
             gap: 10px;
             color: $text-gray;
+            cursor: pointer;
         }
     }
 }
@@ -138,8 +139,8 @@ main {
             top: 0;
             z-index: 90;
             @include glass-effect(0.8, 15px);
-            padding: 2px 0px; // გვერდითა პედინგი დაამთხვიე კონტენტს
-            margin-left: -25px; // თუ wrapper-ს აქვს პედინგი, ეს დააბრუნებს სექციას კიდეებამდე
+            padding: 2px 0px; 
+            margin-left: 10px; // თუ wrapper-ს აქვს პედინგი, ეს დააბრუნებს სექციას კიდეებამდე
             margin-right: -25px;
 
             ul {
@@ -149,7 +150,7 @@ main {
                 margin-bottom: 15px;
                 flex-wrap: wrap;
                 &::-webkit-scrollbar {
-                    display: none; // ჟანრების სქროლბარიც რომ გაქრეს
+                    display: none; 
                 }
 
                 li {

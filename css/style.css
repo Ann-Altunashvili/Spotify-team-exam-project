@@ -69,32 +69,6 @@
   }
 }
 /* =========================
-   BASE
-   ========================= */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: #000;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button {
-  font: inherit;
-}
-
-/* =========================
    MAIN CONTENT
    ========================= */
 .main-content {
@@ -103,6 +77,7 @@ button {
   height: 100%;
   min-width: 0;
   min-height: 0;
+  font-family: "satoshi", sans-serif;
   background: #060606;
   border: 1px solid #202020;
   border-radius: 10px 0 0 10px;
@@ -381,31 +356,37 @@ button {
    MOBILE
    ========================= */
 @media (max-width: 768px) {
-  html,
-  body {
-    overflow: hidden;
-  }
   .main-content {
     border: none;
     border-radius: 0;
     background: #090909;
-  }
-  .content-wrapper {
-    padding: 10px 12px 120px;
-    gap: 28px;
+    padding-bottom: 90px;
   }
   .main-content .mobile-shortcuts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    padding: 0 3px;
   }
-  .catalogue {
-    gap: 12px;
+  .mobile-shortcuts__image {
+    width: 43px;
+    height: 43px;
+    border-radius: 3px;
+    margin-left: 7px;
+  }
+  .mobile-shortcuts__title {
+    font-size: 14px;
+    font-weight: 400;
+    color: #e0e0e0;
+  }
+  .mobile-shortcuts__item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
   }
   .catalogue-title {
-    font-size: 18px;
-    line-height: 1.2;
+    padding: 30px 15px;
+    font-size: 27px;
   }
   .catalogue-actions .catalogue-btn:not(:last-child) {
     display: none;
@@ -453,20 +434,80 @@ button {
   }
   .music-card__type,
   .mix-card__type {
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500;
   }
   .music-card__count,
   .mix-card__count {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 400;
   }
   .music-card__desc,
   .mix-card__desc {
     margin-top: 4px;
-    font-size: 12px;
+    font-size: 10px;
+    font-weight: 400;
   }
   .catalogue-artists {
     display: none;
+  }
+  .filters-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    margin-bottom: 22px;
+  }
+  .filters-section .filters {
+    display: flex;
+    gap: 10px;
+  }
+  .filters-section .filters .filter {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: #202020;
+    color: #e0e0e0;
+    font-family: "satoshi", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+  }
+  .filters-section .filters .filter:hover {
+    background-color: #3e3e3e;
+  }
+  .filters-section .filters .filter--active {
+    display: none;
+  }
+  .filters-section .filters-layout-action .icon-action {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  .filters-section .filters-layout-action .icon-action__icon {
+    width: 40px;
+    height: 40px;
+    color: #898989;
+  }
+  .filters-section .filters-section {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #060606;
+    padding: 12px 8px;
+  }
+}
+@media (max-width: 768px) and (min-width: 1600px) {
+  .catalogue-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media (max-width: 768px) and (max-width: 1599px) and (min-width: 1200px) {
+  .catalogue-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 .header {
@@ -828,7 +869,7 @@ button {
   border-radius: 10px;
 }
 
-body {
+.page-discover {
   display: grid;
   grid-template-columns: 15vw 1fr;
   grid-template-rows: 65px 1fr 81px;
@@ -932,6 +973,7 @@ header .top-buttons li img:hover img {
   width: calc(15vw - 10px);
   gap: 10px;
   color: #898989;
+  cursor: pointer;
 }
 
 .sidebar-wrapper {
@@ -976,7 +1018,7 @@ main .discover-wrapper .buttons-for-discover {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   padding: 2px 0px;
-  margin-left: -25px;
+  margin-left: 10px;
   margin-right: -25px;
 }
 main .discover-wrapper .buttons-for-discover ul {
