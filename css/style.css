@@ -624,6 +624,10 @@
    MOBILE
    ========================= */
 @media (max-width: 768px) {
+  html,
+  body {
+    overflow: hidden;
+  }
   .main-content {
     background: #090909;
     border: none;
@@ -643,27 +647,19 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    padding: 0 3px;
   }
   .catalogue {
     gap: 10px;
   }
   .catalogue-title {
-    padding: 30px 15px;
-    font-size: 27px;
+    font-size: 18px;
+    line-height: 1.2;
   }
-  .catalogue-actions .catalogue-btn:not(:last-child) {
-    display: none;
-  }
-  .catalogue-btn {
-    width: auto;
-    height: auto;
-    padding: 4px;
-    background: transparent;
-    border-radius: 0;
-  }
-  .catalogue-btn img {
-    width: 18px;
-    height: 18px;
+  .catalogue .main-content .mobile-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   .catalogue-grid {
     display: flex;
@@ -678,46 +674,78 @@
   .catalogue-grid::-webkit-scrollbar {
     display: none;
   }
-  .music-card,
-  .mix-card {
+  .catalogue-grid__image-wrap::before {
+    width: 110px;
+    top: -14px;
+  }
+  .catalogue-grid__image-wrap::after {
+    width: 126px;
+    top: -10px;
+  }
+  .catalogue-grid .catalogue-btn {
+    width: auto;
+    height: auto;
+    padding: 4px;
+    background: transparent;
+    border-radius: 0;
+  }
+  .catalogue-grid .catalogue-btn img {
+    width: 18px;
+    height: 18px;
+  }
+  .catalogue-grid .catalogue-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .catalogue-grid .catalogue-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .catalogue-grid .music-card,
+  .catalogue-grid .mix-card {
     flex: 0 0 140px;
     min-width: 140px;
     scroll-snap-align: start;
   }
-  .music-card__image-wrap::before,
-  .mix-card__image-wrap::before {
-    width: 110px;
-    top: -14px;
+  .catalogue-grid .music-card__image-wrap,
+  .catalogue-grid .mix-card__image-wrap {
+    margin-top: 0;
   }
-  .music-card__image-wrap::after,
-  .mix-card__image-wrap::after {
-    width: 126px;
-    top: -10px;
+  .catalogue-grid .music-card__image-wrap::before,
+  .catalogue-grid .mix-card__image-wrap::before {
+    top: -6px;
+    height: 5px;
   }
-  .music-card__meta,
-  .mix-card__meta {
+  .catalogue-grid .music-card__meta,
+  .catalogue-grid .mix-card__meta {
     margin-top: 8px;
   }
-  .music-card__type,
-  .mix-card__type {
+  .catalogue-grid .music-card__type,
+  .catalogue-grid .mix-card__type {
     font-size: 12px;
     font-weight: 500;
   }
-  .music-card__count,
-  .mix-card__count {
+  .catalogue-grid .music-card__count,
+  .catalogue-grid .mix-card__count {
     font-size: 12px;
     font-weight: 400;
   }
-  .music-card__desc,
-  .mix-card__desc {
+  .catalogue-grid .music-card__desc,
+  .catalogue-grid .mix-card__desc {
     margin-top: 4px;
     font-size: 10px;
     font-weight: 400;
   }
-  .catalogue-artists {
+  .catalogue-grid .catalogue-artists {
+    display: none;
+  }
+  .catalogue-grid .catalogue-artists {
     display: block;
   }
-  .artists-grid {
+  .catalogue-grid .artists-grid {
     display: flex;
     flex-wrap: nowrap;
     align-items: flex-start;
@@ -728,20 +756,20 @@
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
   }
-  .artists-grid::-webkit-scrollbar {
+  .catalogue-grid .artists-grid::-webkit-scrollbar {
     display: none;
   }
-  .artist-card {
+  .catalogue-grid .artist-card {
     flex: 0 0 120px;
     width: 120px;
     height: 120px;
     scroll-snap-align: start;
   }
-  .artist-card__link {
+  .catalogue-grid .artist-card__link {
     width: 120px;
     height: 120px;
   }
-  .artist-card__image {
+  .catalogue-grid .artist-card__image {
     width: 120px;
     height: 120px;
   }
