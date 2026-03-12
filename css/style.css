@@ -103,13 +103,13 @@ button {
   height: 100%;
   min-width: 0;
   min-height: 0;
-  background: #060606;
-  border: 1px solid #202020;
-  border-radius: 10px 0 0 10px;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: auto;
+  background: #060606;
+  border: 1px solid #202020;
+  border-radius: 10px 0 0 10px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -118,51 +118,124 @@ button {
 }
 
 /* =========================
+   FILTERS SECTION
+   ========================= */
+.filters-section {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 60px;
+  padding: 8px 20px 0;
+  background: rgba(6, 6, 6, 0.92);
+  backdrop-filter: blur(22px);
+}
+
+.filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter {
+  height: 35px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(32, 32, 32, 0.5);
+  color: rgb(224, 224, 224);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.filter--active {
+  background: rgb(224, 224, 224);
+  color: rgba(32, 32, 32, 0.9);
+}
+.filter--all {
+  width: 48px;
+}
+.filter--music {
+  width: 68px;
+}
+.filter--podcasts {
+  width: 89px;
+}
+.filter--audiobooks {
+  width: 107px;
+}
+
+.filters-layout-action {
+  flex-shrink: 0;
+}
+
+.icon-action {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-action__icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* =========================
    CONTENT WRAPPER
    ========================= */
 .content-wrapper {
   width: 100%;
   min-width: 0;
-  padding: 12px 14px 140px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 40px;
+  padding: 16px 20px 140px;
 }
 
 /* =========================
    MOBILE SHORTCUTS
    ========================= */
-.main-content .mobile-shortcuts {
+.mobile-shortcuts {
   display: none;
 }
-
 .mobile-shortcuts__item {
   display: flex;
   align-items: center;
   min-width: 0;
   height: 56px;
-  background: linear-gradient(90deg, #2a2a2a 0%, #1f1f1f 100%);
-  border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
+  background: linear-gradient(90deg, #2a2a2a 0%, #1f1f1f 100%);
+  border-radius: 8px;
 }
 .mobile-shortcuts__image {
   width: 56px;
   height: 56px;
   flex-shrink: 0;
   object-fit: cover;
-  display: block;
 }
 .mobile-shortcuts__text {
   min-width: 0;
-  padding: 0 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 12px;
 }
 .mobile-shortcuts__title {
   margin: 0;
-  color: #ffffff;
+  color: #fff;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2;
@@ -188,7 +261,7 @@ button {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
 }
 .catalogue-top {
   width: 100%;
@@ -201,7 +274,7 @@ button {
 .catalogue-title {
   margin: 0;
   color: #fff;
-  font-size: 31px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -214,20 +287,21 @@ button {
 }
 
 .catalogue-btn {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  background: transparent;
 }
 .catalogue-btn img {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
 }
 
 .catalogue-grid {
@@ -235,7 +309,8 @@ button {
   min-width: 0;
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 10px;
+  gap: 15px;
+  margin-top: 6px;
 }
 
 /* =========================
@@ -258,7 +333,6 @@ button {
   position: relative;
   width: 100%;
   aspect-ratio: 1/1;
-  margin-top: 16px;
   border-radius: 7.25px;
   overflow: visible;
 }
@@ -266,34 +340,49 @@ button {
 .mix-card__image-wrap::before {
   content: "";
   position: absolute;
-  top: -8px;
-  left: 5%;
-  width: 90%;
+  top: -18px;
+  left: 50%;
+  width: 133px;
+  height: 3px;
+  transform: translateX(-50%);
+  border-top-left-radius: 7.25px;
+  border-top-right-radius: 7.25px;
+  z-index: 1;
+}
+.music-card__image-wrap::after,
+.mix-card__image-wrap::after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 154px;
   height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 7.25px 7.25px 0 0;
+  transform: translateX(-50%);
+  border-top-left-radius: 7.25px;
+  border-top-right-radius: 7.25px;
+  z-index: 2;
 }
 .music-card__image,
 .mix-card__image {
   width: 100%;
   height: 100%;
-  border-radius: 7.25px;
   object-fit: cover;
+  border-radius: 7.25px;
 }
 .music-card__meta,
 .mix-card__meta {
-  margin-top: 8px;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  min-width: 0;
+  margin-top: 8px;
 }
 .music-card__type,
 .mix-card__type {
   min-width: 0;
-  color: #fff;
-  font-size: 15px;
+  color: rgb(224, 224, 224);
+  font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -302,68 +391,248 @@ button {
 .music-card__count,
 .mix-card__count {
   flex-shrink: 0;
-  color: #ff5ec4;
   font-size: 14px;
+  font-weight: 400;
 }
 .music-card__desc,
 .mix-card__desc {
   margin: 4px 0 0;
-  color: #898989;
+  color: rgb(137, 137, 137);
   font-size: 12px;
   line-height: 1.35;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
 }
 
 /* =========================
-   ARTISTS
+   MUSIC CARD COLORS
+   ========================= */
+.music-card--pink .music-card__image-wrap::before {
+  background: rgba(206, 110, 154, 0.15);
+}
+.music-card--pink .music-card__image-wrap::after {
+  background: rgba(206, 110, 154, 0.3);
+}
+.music-card--pink .music-card__count {
+  color: rgb(206, 110, 154);
+}
+
+.music-card--mint .music-card__image-wrap::before {
+  background: rgba(149, 230, 211, 0.15);
+}
+.music-card--mint .music-card__image-wrap::after {
+  background: rgba(149, 230, 211, 0.3);
+}
+.music-card--mint .music-card__count {
+  color: rgb(149, 230, 211);
+}
+
+.music-card--rose .music-card__image-wrap::before {
+  background: rgba(244, 184, 189, 0.15);
+}
+.music-card--rose .music-card__image-wrap::after {
+  background: rgba(244, 184, 189, 0.3);
+}
+.music-card--rose .music-card__count {
+  color: rgb(244, 184, 189);
+}
+
+.music-card--green .music-card__image-wrap::before {
+  background: rgba(195, 231, 183, 0.15);
+}
+.music-card--green .music-card__image-wrap::after {
+  background: rgba(195, 231, 183, 0.3);
+}
+.music-card--green .music-card__count {
+  color: rgb(195, 231, 183);
+}
+
+.music-card--hotpink .music-card__image-wrap::before {
+  background: rgba(243, 127, 166, 0.15);
+}
+.music-card--hotpink .music-card__image-wrap::after {
+  background: rgba(243, 127, 166, 0.3);
+}
+.music-card--hotpink .music-card__count {
+  color: rgb(243, 127, 166);
+}
+
+.music-card--steel .music-card__image-wrap::before {
+  background: rgba(160, 190, 200, 0.15);
+}
+.music-card--steel .music-card__image-wrap::after {
+  background: rgba(160, 190, 200, 0.3);
+}
+.music-card--steel .music-card__count {
+  color: rgb(160, 190, 200);
+}
+
+.music-card--yellow .music-card__image-wrap::before {
+  background: rgba(253, 216, 125, 0.15);
+}
+.music-card--yellow .music-card__image-wrap::after {
+  background: rgba(253, 216, 125, 0.3);
+}
+.music-card--yellow .music-card__count {
+  color: rgb(253, 216, 125);
+}
+
+.music-card--beige .music-card__image-wrap::before {
+  background: rgba(212, 178, 169, 0.15);
+}
+.music-card--beige .music-card__image-wrap::after {
+  background: rgba(212, 178, 169, 0.3);
+}
+.music-card--beige .music-card__count {
+  color: rgb(212, 178, 169);
+}
+
+/* =========================
+   MIX CARD COLORS
+   ========================= */
+.mix-card--lime .mix-card__image-wrap::before {
+  background: rgba(204, 246, 101, 0.15);
+}
+.mix-card--lime .mix-card__image-wrap::after {
+  background: rgba(204, 246, 101, 0.3);
+}
+.mix-card--lime .mix-card__count {
+  color: rgb(204, 246, 101);
+}
+
+.mix-card--gold .mix-card__image-wrap::before {
+  background: rgba(249, 231, 44, 0.15);
+}
+.mix-card--gold .mix-card__image-wrap::after {
+  background: rgba(249, 231, 44, 0.3);
+}
+.mix-card--gold .mix-card__count {
+  color: rgb(249, 231, 44);
+}
+
+.mix-card--cyan .mix-card__image-wrap::before {
+  background: rgba(155, 240, 226, 0.15);
+}
+.mix-card--cyan .mix-card__image-wrap::after {
+  background: rgba(155, 240, 226, 0.3);
+}
+.mix-card--cyan .mix-card__count {
+  color: rgb(155, 240, 226);
+}
+
+.mix-card--blue .mix-card__image-wrap::before {
+  background: rgba(111, 134, 255, 0.15);
+}
+.mix-card--blue .mix-card__image-wrap::after {
+  background: rgba(111, 134, 255, 0.3);
+}
+.mix-card--blue .mix-card__count {
+  color: rgb(111, 134, 255);
+}
+
+.mix-card--blush .mix-card__image-wrap::before {
+  background: rgba(255, 203, 212, 0.15);
+}
+.mix-card--blush .mix-card__image-wrap::after {
+  background: rgba(255, 203, 212, 0.3);
+}
+.mix-card--blush .mix-card__count {
+  color: rgb(255, 203, 212);
+}
+
+.mix-card--orange .mix-card__image-wrap::before {
+  background: rgba(255, 198, 104, 0.15);
+}
+.mix-card--orange .mix-card__image-wrap::after {
+  background: rgba(255, 198, 104, 0.3);
+}
+.mix-card--orange .mix-card__count {
+  color: rgb(255, 198, 104);
+}
+
+.mix-card--teal .mix-card__image-wrap::before {
+  background: rgba(39, 133, 107, 0.15);
+}
+.mix-card--teal .mix-card__image-wrap::after {
+  background: rgba(39, 133, 107, 0.3);
+}
+.mix-card--teal .mix-card__count {
+  color: rgb(39, 133, 107);
+}
+
+.mix-card--magenta .mix-card__image-wrap::before {
+  background: rgba(221, 19, 139, 0.15);
+}
+.mix-card--magenta .mix-card__image-wrap::after {
+  background: rgba(221, 19, 139, 0.3);
+}
+.mix-card--magenta .mix-card__count {
+  color: rgb(221, 19, 139);
+}
+
+/* =========================
+   ARTISTS SECTION
+   ========================= */
+.catalogue-artists {
+  width: 100%;
+}
+
+.catalogue-top--artists {
+  justify-content: space-between;
+}
+
+.catalogue-artists .catalogue-title {
+  color: rgb(224, 224, 224);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+}
+
+/* =========================
+   ARTISTS GRID
    ========================= */
 .artists-grid {
-  display: flex;
-  gap: 16px;
-  align-items: flex-end;
-  margin-top: 20px;
   width: 100%;
-  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 6px;
+  overflow: hidden;
 }
 
+/* =========================
+   ARTIST CARD
+   ========================= */
 .artist-card {
-  width: 148px;
-  height: 74px;
   position: relative;
-  border-top-left-radius: 148px;
-  border-top-right-radius: 148px;
-  overflow: hidden;
-  background: #000;
+  width: 170px;
+  height: 170px;
   flex-shrink: 0;
 }
+
+/* =========================
+   ARTIST CARD LINK
+   ========================= */
 .artist-card__link {
   display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
+  width: 170px;
+  height: 170px;
+  position: relative;
 }
+
+/* =========================
+   ARTIST CARD IMAGE
+   ========================= */
 .artist-card__image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 148px;
+  width: 170px;
+  height: 170px;
   object-fit: cover;
-}
-
-.artist-card__link--artist1 .artist-card__image {
-  transform: scale(2.2) translateY(18px);
-}
-
-.artist-card__link--artist2 .artist-card__image {
-  transform: scale(2) translateY(14px);
-}
-
-.artist-card__link--artist3 .artist-card__image {
-  transform: scale(2.4) translateY(22px);
+  border-radius: 50%;
+  display: block;
 }
 
 /* =========================
@@ -386,22 +655,28 @@ button {
     overflow: hidden;
   }
   .main-content {
+    background: #090909;
     border: none;
     border-radius: 0;
-    background: #090909;
+  }
+  .filter--active {
+    display: none;
+  }
+  .filters-section {
+    padding: 8px 12px 0;
   }
   .content-wrapper {
+    gap: 36px;
     padding: 10px 12px 120px;
-    gap: 28px;
   }
-  .main-content .mobile-shortcuts {
+  .mobile-shortcuts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     padding: 0 3px;
   }
   .catalogue {
-    gap: 12px;
+    gap: 10px;
   }
   .catalogue-title {
     font-size: 18px;
@@ -424,7 +699,9 @@ button {
   .catalogue-grid {
     display: flex;
     gap: 12px;
+    margin-top: 4px;
     overflow-x: auto;
+    padding-top: 18px;
     padding-bottom: 4px;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -438,14 +715,15 @@ button {
     min-width: 140px;
     scroll-snap-align: start;
   }
-  .music-card__image-wrap,
-  .mix-card__image-wrap {
-    margin-top: 0;
-  }
   .music-card__image-wrap::before,
   .mix-card__image-wrap::before {
-    top: -6px;
-    height: 5px;
+    width: 110px;
+    top: -14px;
+  }
+  .music-card__image-wrap::after,
+  .mix-card__image-wrap::after {
+    width: 126px;
+    top: -10px;
   }
   .music-card__meta,
   .mix-card__meta {
@@ -466,7 +744,35 @@ button {
     font-size: 12px;
   }
   .catalogue-artists {
+    display: block;
+  }
+  .artists-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 4px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .artists-grid::-webkit-scrollbar {
     display: none;
+  }
+  .artist-card {
+    flex: 0 0 120px;
+    width: 120px;
+    height: 120px;
+    scroll-snap-align: start;
+  }
+  .artist-card__link {
+    width: 120px;
+    height: 120px;
+  }
+  .artist-card__image {
+    width: 120px;
+    height: 120px;
   }
 }
 .header {
