@@ -91,3 +91,10 @@
     transition: all 0.3s linear;
     @include font-style;
 }
+
+@mixin flex($align, $justify, $gap) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}

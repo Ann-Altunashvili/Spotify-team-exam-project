@@ -2,32 +2,6 @@
 @use "../abstracts/mixins" as *;
 
 /* =========================
-   BASE
-   ========================= */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: #000;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button {
-  font: inherit;
-}
-
-/* =========================
    MAIN CONTENT
    ========================= */
 .main-content {
@@ -701,22 +675,11 @@ button {
       font-size: 18px;
       line-height: 1.2;
     }
-  }
 
-  .catalogue-actions .catalogue-btn:not(:last-child) {
-    display: none;
-  }
-
-  .catalogue-btn {
-    width: auto;
-    height: auto;
-    padding: 4px;
-    background: transparent;
-    border-radius: 0;
-
-    img {
-      width: 18px;
-      height: 18px;
+    .main-content .mobile-shortcuts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
   }
 
@@ -733,13 +696,6 @@ button {
     &::-webkit-scrollbar {
       display: none;
     }
-  }
-
-  .music-card,
-  .mix-card {
-    flex: 0 0 140px;
-    min-width: 140px;
-    scroll-snap-align: start;
 
     &__image-wrap {
       &::before {
@@ -753,24 +709,71 @@ button {
       }
     }
 
-    &__meta {
-      margin-top: 8px;
+    .catalogue-btn {
+        width: auto;
+        height: auto;
+        padding: 4px;
+        background: transparent;
+        border-radius: 0;
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
     }
 
-    &__type {
-      font-size: 15px;
-      font-weight: 600;
+    .catalogue-grid {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
-    &__count {
-      font-size: 14px;
+    .music-card,
+    .mix-card {
+        flex: 0 0 140px;
+        min-width: 140px;
+        scroll-snap-align: start;
+
+        &__image-wrap {
+            margin-top: 0;
+
+            &::before {
+                top: -6px;
+                height: 5px;
+            }
+        }
+
+        &__meta {
+            margin-top: 8px;
+        }
+
+        &__type {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        &__count {
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        &__desc {
+            margin-top: 4px;
+            font-size: 10px;
+            font-weight: 400;
+        }
     }
 
-    &__desc {
-      margin-top: 4px;
-      font-size: 12px;
+    .catalogue-artists {
+        display: none;
     }
-  }
 
   .catalogue-artists {
     display: block;
