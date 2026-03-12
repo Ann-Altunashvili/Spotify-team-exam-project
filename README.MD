@@ -1,4 +1,5 @@
 # 🎵 Spotify Clone - Team Collaboration Exam Project
+## ლინკი: https://www.figma.com/design/jrlUWJdbxTc2bKd5dpRa5r/10X-markup-exam-project---Spotify?node-id=298-34930&t=SPiz4LE7TUH5LMmI-0
 
 ## 🚀 Front-end დეველოპმენტის პროგრამის პირველი ნაწილის საგამოცდო ჯგუფური პროექტი
 ---

@@ -466,15 +466,4 @@
             padding: 12px 8px;
         }
     }
-    @media (min-width: 1600px) {
-        .catalogue-grid {
-            grid-template-columns: repeat(8, 1fr);
-        }
-    }
-
-    @media (max-width: 1599px) and (min-width: 1200px) {
-        .catalogue-grid {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
 }

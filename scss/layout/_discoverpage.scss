@@ -12,6 +12,11 @@
     background-color: $color-bg;
 }
 
+.not-active{
+    background-color: $color-active-chip-text !important;
+    color: $text-gray;
+}
+
 //Header
 header {
     grid-column: 2 / 3;
@@ -66,6 +71,7 @@ header {
     z-index: 30;
     border-radius: 10px;
     overflow-y: auto;
+    padding-top: 12px;
 
     li {
         height: 45px;
