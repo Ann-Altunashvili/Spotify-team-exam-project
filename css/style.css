@@ -62,7 +62,7 @@
   }
   .responsive-nav p {
     color: #898989;
-    font-family: "Satoshi";
+    font-family: "satoshi", sans-serif;
     font-size: 12px;
     letter-spacing: 3%;
     margin: 0;
@@ -751,7 +751,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Satoshi";
+  font-family: "$font-main";
   font-weight: 400;
   font-size: 14px;
   position: fixed;
@@ -1069,7 +1069,7 @@ button {
   color: #898989;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 2px;
-  font-family: "satoshi";
+  font-family: "$font-main";
   position: fixed;
   top: 0;
   left: 0;
@@ -1720,16 +1720,6 @@ a {
 img {
   max-width: 100%;
   display: block;
-}
-
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.main-layout {
-  overflow: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */
