@@ -91,3 +91,38 @@
     transition: all 0.3s linear;
     @include font-style;
 }
+
+
+
+
+/* =====================
+   Flex Center Mixin
+   ===================== */
+@mixin flex-center($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+/* =====================
+   Image Brightness
+   ===================== */
+@mixin img-brightness($brightness: 1.5) {
+  img {
+    filter: brightness($brightness);
+  }
+}
+
+/* =====================
+   Exact Transition Mixin
+   ===================== */
+@mixin exact-transition {
+  transition: 0.3s ease;
+}
+
+/* =====================
+   Exact Letter Spacing Mixin
+   ===================== */
+@mixin letter-spacing-3 {
+  letter-spacing: 3%;
+}
