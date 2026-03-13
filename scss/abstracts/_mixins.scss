@@ -125,4 +125,9 @@
    ===================== */
 @mixin letter-spacing-3 {
   letter-spacing: 3%;
+@mixin flex($align, $justify, $gap) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
 }
