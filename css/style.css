@@ -69,12 +69,41 @@
   }
 }
 /* =========================
+   BASE
+   ========================= */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #000;
+  font-family: "satoshi", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+/* =========================
    MAIN CONTENT
    ========================= */
 .main-content {
-  flex: 1;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  margin-left: 259px;
+  margin-top: 60px;
+  width: calc(100% - 259px);
+  height: calc(100vh - 54px);
   min-width: 0;
   min-height: 0;
   display: flex;
@@ -131,16 +160,20 @@
   background: rgb(224, 224, 224);
   color: rgba(32, 32, 32, 0.9);
 }
-.filter--all {
+
+.filters button:nth-child(1) {
   width: 48px;
 }
-.filter--music {
+
+.filters button:nth-child(2) {
   width: 68px;
 }
-.filter--podcasts {
+
+.filters button:nth-child(3) {
   width: 89px;
 }
-.filter--audiobooks {
+
+.filters button:nth-child(4) {
   width: 107px;
 }
 
@@ -181,9 +214,10 @@
 /* =========================
    MOBILE SHORTCUTS
    ========================= */
-.mobile-shortcuts {
+.main-content .mobile-shortcuts {
   display: none;
 }
+
 .mobile-shortcuts__item {
   display: flex;
   align-items: center;
@@ -321,6 +355,7 @@
   transform: translateX(-50%);
   border-top-left-radius: 7.25px;
   border-top-right-radius: 7.25px;
+  background: rgba(206, 110, 154, 0.15);
   z-index: 1;
 }
 .music-card__image-wrap::after,
@@ -334,6 +369,7 @@
   transform: translateX(-50%);
   border-top-left-radius: 7.25px;
   border-top-right-radius: 7.25px;
+  background: rgba(206, 110, 154, 0.3);
   z-index: 2;
 }
 .music-card__image,
@@ -382,168 +418,206 @@
 }
 
 /* =========================
-   MUSIC CARD COLORS
+   MUSIC CARD TOP BAR COLORS
    ========================= */
-.music-card--pink .music-card__image-wrap::before {
+.catalogue .catalogue-grid > article:nth-child(1) .music-card__image-wrap::before {
   background: rgba(206, 110, 154, 0.15);
 }
-.music-card--pink .music-card__image-wrap::after {
+
+.catalogue .catalogue-grid > article:nth-child(1) .music-card__image-wrap::after {
   background: rgba(206, 110, 154, 0.3);
 }
-.music-card--pink .music-card__count {
+
+.catalogue .catalogue-grid > article:nth-child(2) .music-card__image-wrap::before {
+  background: rgba(149, 230, 211, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(2) .music-card__image-wrap::after {
+  background: rgba(149, 230, 211, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(3) .music-card__image-wrap::before {
+  background: rgba(244, 184, 189, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(3) .music-card__image-wrap::after {
+  background: rgba(244, 184, 189, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(4) .music-card__image-wrap::before {
+  background: rgba(195, 231, 183, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(4) .music-card__image-wrap::after {
+  background: rgba(195, 231, 183, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(5) .music-card__image-wrap::before {
+  background: rgba(243, 127, 166, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(5) .music-card__image-wrap::after {
+  background: rgba(243, 127, 166, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(6) .music-card__image-wrap::before {
+  background: rgba(160, 190, 200, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(6) .music-card__image-wrap::after {
+  background: rgba(160, 190, 200, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(7) .music-card__image-wrap::before {
+  background: rgba(253, 216, 125, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(7) .music-card__image-wrap::after {
+  background: rgba(253, 216, 125, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(8) .music-card__image-wrap::before {
+  background: rgba(212, 178, 169, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(8) .music-card__image-wrap::after {
+  background: rgba(212, 178, 169, 0.3);
+}
+
+/* =========================
+   MIX CARD TOP BAR COLORS
+   ========================= */
+.catalogue .catalogue-grid > article:nth-child(1) .mix-card__image-wrap::before {
+  background: rgba(204, 246, 101, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(1) .mix-card__image-wrap::after {
+  background: rgba(204, 246, 101, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(2) .mix-card__image-wrap::before {
+  background: rgba(249, 231, 44, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(2) .mix-card__image-wrap::after {
+  background: rgba(249, 231, 44, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(3) .mix-card__image-wrap::before {
+  background: rgba(155, 240, 226, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(3) .mix-card__image-wrap::after {
+  background: rgba(155, 240, 226, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(4) .mix-card__image-wrap::before {
+  background: rgba(111, 134, 255, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(4) .mix-card__image-wrap::after {
+  background: rgba(111, 134, 255, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(5) .mix-card__image-wrap::before {
+  background: rgba(255, 203, 212, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(5) .mix-card__image-wrap::after {
+  background: rgba(255, 203, 212, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(6) .mix-card__image-wrap::before {
+  background: rgba(255, 198, 104, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(6) .mix-card__image-wrap::after {
+  background: rgba(255, 198, 104, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(7) .mix-card__image-wrap::before {
+  background: rgba(39, 133, 107, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(7) .mix-card__image-wrap::after {
+  background: rgba(39, 133, 107, 0.3);
+}
+
+.catalogue .catalogue-grid > article:nth-child(8) .mix-card__image-wrap::before {
+  background: rgba(221, 19, 139, 0.15);
+}
+
+.catalogue .catalogue-grid > article:nth-child(8) .mix-card__image-wrap::after {
+  background: rgba(221, 19, 139, 0.3);
+}
+
+/* =========================
+   MUSIC CARD COUNT COLORS
+   ========================= */
+.catalogue .catalogue-grid > article:nth-child(1) .music-card__count {
   color: rgb(206, 110, 154);
 }
 
-.music-card--mint .music-card__image-wrap::before {
-  background: rgba(149, 230, 211, 0.15);
-}
-.music-card--mint .music-card__image-wrap::after {
-  background: rgba(149, 230, 211, 0.3);
-}
-.music-card--mint .music-card__count {
+.catalogue .catalogue-grid > article:nth-child(2) .music-card__count {
   color: rgb(149, 230, 211);
 }
 
-.music-card--rose .music-card__image-wrap::before {
-  background: rgba(244, 184, 189, 0.15);
-}
-.music-card--rose .music-card__image-wrap::after {
-  background: rgba(244, 184, 189, 0.3);
-}
-.music-card--rose .music-card__count {
+.catalogue .catalogue-grid > article:nth-child(3) .music-card__count {
   color: rgb(244, 184, 189);
 }
 
-.music-card--green .music-card__image-wrap::before {
-  background: rgba(195, 231, 183, 0.15);
-}
-.music-card--green .music-card__image-wrap::after {
-  background: rgba(195, 231, 183, 0.3);
-}
-.music-card--green .music-card__count {
+.catalogue .catalogue-grid > article:nth-child(4) .music-card__count {
   color: rgb(195, 231, 183);
 }
 
-.music-card--hotpink .music-card__image-wrap::before {
-  background: rgba(243, 127, 166, 0.15);
-}
-.music-card--hotpink .music-card__image-wrap::after {
-  background: rgba(243, 127, 166, 0.3);
-}
-.music-card--hotpink .music-card__count {
+.catalogue .catalogue-grid > article:nth-child(5) .music-card__count {
   color: rgb(243, 127, 166);
 }
 
-.music-card--steel .music-card__image-wrap::before {
-  background: rgba(160, 190, 200, 0.15);
-}
-.music-card--steel .music-card__image-wrap::after {
-  background: rgba(160, 190, 200, 0.3);
-}
-.music-card--steel .music-card__count {
+.catalogue .catalogue-grid > article:nth-child(6) .music-card__count {
   color: rgb(160, 190, 200);
 }
 
-.music-card--yellow .music-card__image-wrap::before {
-  background: rgba(253, 216, 125, 0.15);
-}
-.music-card--yellow .music-card__image-wrap::after {
-  background: rgba(253, 216, 125, 0.3);
-}
-.music-card--yellow .music-card__count {
+.catalogue .catalogue-grid > article:nth-child(7) .music-card__count {
   color: rgb(253, 216, 125);
 }
 
-.music-card--beige .music-card__image-wrap::before {
-  background: rgba(212, 178, 169, 0.15);
-}
-.music-card--beige .music-card__image-wrap::after {
-  background: rgba(212, 178, 169, 0.3);
-}
-.music-card--beige .music-card__count {
+.catalogue .catalogue-grid > article:nth-child(8) .music-card__count {
   color: rgb(212, 178, 169);
 }
 
 /* =========================
-   MIX CARD COLORS
+   MIX CARD COUNT COLORS
    ========================= */
-.mix-card--lime .mix-card__image-wrap::before {
-  background: rgba(204, 246, 101, 0.15);
-}
-.mix-card--lime .mix-card__image-wrap::after {
-  background: rgba(204, 246, 101, 0.3);
-}
-.mix-card--lime .mix-card__count {
+.catalogue .catalogue-grid > article:nth-child(1) .mix-card__count {
   color: rgb(204, 246, 101);
 }
 
-.mix-card--gold .mix-card__image-wrap::before {
-  background: rgba(249, 231, 44, 0.15);
-}
-.mix-card--gold .mix-card__image-wrap::after {
-  background: rgba(249, 231, 44, 0.3);
-}
-.mix-card--gold .mix-card__count {
+.catalogue .catalogue-grid > article:nth-child(2) .mix-card__count {
   color: rgb(249, 231, 44);
 }
 
-.mix-card--cyan .mix-card__image-wrap::before {
-  background: rgba(155, 240, 226, 0.15);
-}
-.mix-card--cyan .mix-card__image-wrap::after {
-  background: rgba(155, 240, 226, 0.3);
-}
-.mix-card--cyan .mix-card__count {
+.catalogue .catalogue-grid > article:nth-child(3) .mix-card__count {
   color: rgb(155, 240, 226);
 }
 
-.mix-card--blue .mix-card__image-wrap::before {
-  background: rgba(111, 134, 255, 0.15);
-}
-.mix-card--blue .mix-card__image-wrap::after {
-  background: rgba(111, 134, 255, 0.3);
-}
-.mix-card--blue .mix-card__count {
+.catalogue .catalogue-grid > article:nth-child(4) .mix-card__count {
   color: rgb(111, 134, 255);
 }
 
-.mix-card--blush .mix-card__image-wrap::before {
-  background: rgba(255, 203, 212, 0.15);
-}
-.mix-card--blush .mix-card__image-wrap::after {
-  background: rgba(255, 203, 212, 0.3);
-}
-.mix-card--blush .mix-card__count {
+.catalogue .catalogue-grid > article:nth-child(5) .mix-card__count {
   color: rgb(255, 203, 212);
 }
 
-.mix-card--orange .mix-card__image-wrap::before {
-  background: rgba(255, 198, 104, 0.15);
-}
-.mix-card--orange .mix-card__image-wrap::after {
-  background: rgba(255, 198, 104, 0.3);
-}
-.mix-card--orange .mix-card__count {
+.catalogue .catalogue-grid > article:nth-child(6) .mix-card__count {
   color: rgb(255, 198, 104);
 }
 
-.mix-card--teal .mix-card__image-wrap::before {
-  background: rgba(39, 133, 107, 0.15);
-}
-.mix-card--teal .mix-card__image-wrap::after {
-  background: rgba(39, 133, 107, 0.3);
-}
-.mix-card--teal .mix-card__count {
+.catalogue .catalogue-grid > article:nth-child(7) .mix-card__count {
   color: rgb(39, 133, 107);
 }
 
-.mix-card--magenta .mix-card__image-wrap::before {
-  background: rgba(221, 19, 139, 0.15);
-}
-.mix-card--magenta .mix-card__image-wrap::after {
-  background: rgba(221, 19, 139, 0.3);
-}
-.mix-card--magenta .mix-card__count {
+.catalogue .catalogue-grid > article:nth-child(8) .mix-card__count {
   color: rgb(221, 19, 139);
 }
 
@@ -559,6 +633,8 @@
 }
 
 .catalogue-artists .catalogue-title {
+  width: 210px;
+  height: 27px;
   color: rgb(224, 224, 224);
   font-size: 20px;
   font-weight: 700;
@@ -579,7 +655,7 @@
 }
 
 /* =========================
-   ARTIST CARD
+   ARTIST CARD (crop container)
    ========================= */
 .artist-card {
   position: relative;
@@ -589,7 +665,7 @@
 }
 
 /* =========================
-   ARTIST CARD LINK
+   LINK
    ========================= */
 .artist-card__link {
   display: block;
@@ -599,7 +675,7 @@
 }
 
 /* =========================
-   ARTIST CARD IMAGE
+   IMAGE (circle)
    ========================= */
 .artist-card__image {
   width: 170px;
@@ -624,32 +700,46 @@
    MOBILE
    ========================= */
 @media (max-width: 768px) {
+  html,
+  body {
+    overflow: hidden;
+  }
   .main-content {
-    background: #090909;
+    margin-left: 0;
+    width: 100%;
     border: none;
     border-radius: 0;
+    background: #090909;
+  }
+  .filters {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
   }
   .filter--active {
     display: none;
   }
   .filters-section {
-    padding: 8px 12px 0;
+    padding: 1px 1px 0;
   }
   .content-wrapper {
     gap: 36px;
     padding: 10px 12px 120px;
   }
-  .mobile-shortcuts {
+  .main-content .mobile-shortcuts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    padding: 0 3px;
   }
   .catalogue {
     gap: 10px;
   }
   .catalogue-title {
-    padding: 30px 15px;
-    font-size: 27px;
+    font-size: 18px;
+    line-height: 1.2;
+    width: auto;
+    height: auto;
   }
   .catalogue-actions .catalogue-btn:not(:last-child) {
     display: none;
@@ -700,19 +790,17 @@
   }
   .music-card__type,
   .mix-card__type {
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 600;
   }
   .music-card__count,
   .mix-card__count {
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 14px;
   }
   .music-card__desc,
   .mix-card__desc {
     margin-top: 4px;
-    font-size: 10px;
-    font-weight: 400;
+    font-size: 12px;
   }
   .catalogue-artists {
     display: block;
@@ -757,7 +845,7 @@
   position: fixed;
   height: 54px;
   top: 0;
-  left: 259px;
+  left: 225px;
   right: 0;
   z-index: 2;
 }
