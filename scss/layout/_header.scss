@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Satoshi";
+  font-family: "$font-main";
   font-weight: 400;
   font-size: 14px;
   position: fixed;
@@ -18,10 +18,8 @@
 }
 
 .nav-list {
-  display: flex;
+  @include flex-center;
   color: $color-text-secondary;
-  justify-content: center;
-  align-items: center;
   margin-top: 4px;
 }
 
@@ -30,18 +28,21 @@
 }
 
 .nav-item a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  @include flex-center;
+
   gap: 10px;
   letter-spacing: 3%;
+  @include letter-spacing-3;
 
   &:hover {
     color: $color-text-primary;
-    transition: 0.3s ease;
+    @include exact-transition;
+   
   }
   img {
-    filter: brightness(1.5);
+    @include img-brightness;
+    
   }
 }
 
