@@ -71,7 +71,7 @@
   transition: filter 0.2s linear;
 }
 
-// glass effect
+// Implements a modern glassmorphism effect using background opacity and backdrop blur 
 @mixin glass-effect($bg-opacity: 0.8, $blur: 15px) {
     background-color: rgba($color-bg, $bg-opacity);
     backdrop-filter: blur($blur);
@@ -125,9 +125,42 @@
    ===================== */
 @mixin letter-spacing-3 {
   letter-spacing: 3%;
+}
+
 @mixin flex($align, $justify, $gap) {
   display: flex;
   align-items: $align;
   justify-content: $justify;
   gap: $gap;
+}
+
+// სურათების ზომის მიქსინი (რომ არ მეორდეს width/height/object-fit)
+@mixin square($size, $radius: 0) {
+    width: $size;
+    height: $size;
+    min-width: $size;
+    border-radius: $radius;
+    object-fit: cover;
+}
+
+//Hover ეფექტი სიმღერის რიგისთვის
+@mixin row-hover {
+    transition: background-color $transition-base;
+    &:hover {
+        background-color: $color-white-muted;
+        color: $color-text-primary;
+        h3 { color: $color-text-primary; }
+    }
+}
+
+//Standard Spotify-style capsule button with pill-shaped corners and hover transitions 
+@mixin capsule-button($bg: #20202080, $color: $color-text-primary) {
+    padding: 8px 16px;
+    background-color: $bg;
+    color: $color;
+    border-radius: $radius-pill;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all $transition-base;
+    font-family: $font-main;
 }

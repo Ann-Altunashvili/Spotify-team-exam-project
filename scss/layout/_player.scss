@@ -2,6 +2,7 @@
 @use "../abstracts/mixins" as *;
 @use "../base/base" as *;
 @use "../components/buttons" as *;
+@use "sass:color";
 
 .footer-player {
     position: fixed;
@@ -10,6 +11,7 @@
     width: 95%;
     max-width: 1491px;
     background-color: $color-bg-player;
+    transition: background-color 0.3s linear; //after click start button, background changes color;
     border-radius: 10px;
     border: 1px solid $color-border-main;
     padding: 0 20px 0 20px;
@@ -18,8 +20,11 @@
     margin-bottom: 5px;
     margin-right: 5px;
     z-index: 1000;
-    // background-color: rgba($color-bg-player, 0.9); გამჭვიროვალობისთვის
-    //backdrop-filter: blur(10px);
+
+//dinamic class, which means that when music is on, player background changes color
+    &.is-playing {
+        background-color: color.adjust($color-bg-player, $lightness: 5%); //build-in-function
+    }
 
     // Player left side (playback controls and time)
     .player-left {
@@ -60,7 +65,7 @@
             width: 100%;
             max-width: 317px;
             min-width: 50px;
-            object-fit: contain;
+            object-fit: contain;//მოთავსდეს შიგთავსი მითითებულ ზომებში პროპორციების დარღვევის გარეშე
             cursor: pointer;
 
             @media (min-width: 768px) and (max-width: 1180px) {
@@ -105,7 +110,7 @@
                     max-width: 100%; // Won't exceed parent width
                 }
 
-                // Specific colors
+                // Specific colors for right hierarchy
                 .mini-track__title {
                     color: $color-text-primary;
                 }
@@ -187,8 +192,6 @@
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: contain;
-                width: 20px;
-                height: 20px;
                 color: $text-gray;
             }
         }
@@ -217,7 +220,7 @@
                         font-family: $font-main;
                         color: $color-text-primary;
                         font-size: 0.875rem;
-                        @include text-fade-right(80%);
+                        @include text-fade-right(80%);//to smoothly transition long titles on small screens (ტექსტის ბოლოს გამჭვირვალობას სძენს)
                     }
                 }
 
